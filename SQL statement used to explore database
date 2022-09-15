@@ -1,0 +1,34 @@
+The sales database contains 5 different tables:
+1. customers
+2. products
+3. date
+4. markets
+5. transactions
+
+Now we explore the data in all tables using the following SQL queries.
+ 1. Show all records
+ SELECT * FROM sale.customers;
+  SELECT * FROM sale.products;
+   SELECT * FROM sale.date;
+    SELECT * FROM sale.markets;
+     SELECT * FROM sale.transactions;
+     
+2. Show the total number of customers
+ SELECT COUNT(*) FROM sale.customers;
+ 
+3. Show distinct values of product codes and market codes
+  SELECT DISTINCT product_code from products;
+  SELECT DISTINCT market_code from markets;
+  
+4. Show transactions only for chennai( market code "Mark001")
+   SELECT * FROM sales.transactions WHERE market_code='Mark001';
+   
+5. Show currency that are in US Dollars
+   SELECT * from sales.transactions WHERE currency='USD';
+
+6. Show total revenue in year 2020
+   SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date 
+   where date.year=2020 and transactions.currency="INR\r" or transactions.currency="USD\r";
+  
+
+ 
